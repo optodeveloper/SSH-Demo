@@ -1,10 +1,11 @@
+from apiKey import Manage_key
 import sys          # to handle argument values
 import requests     # to make get/post requests
 # ignore insecure https requests warning:
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 # head is a JSON object that holds API key information
-head = {    'apiKey' : 'U5GE7wPNox8JkvtuXPiroo5fJDuGuYa9',
+head = {    'apiKey' : Manage_key,
             'Content-Type' : 'application/json' }
 host = 'localhost'
 
