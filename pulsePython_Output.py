@@ -11,7 +11,7 @@ val = 'true'
 # construct request URL for the 'local' built-in rack of I/O *state*
 url = 'https://'+host+'/manage/api/v1/io/local/modules/0/channels/22/digital/state'
 
-for x in range(22):
+for x in range(45):
     val = 'false' if val == 'true' else 'true'
     payload = '{"value":' + val + '}'
     response = requests.put(url, data=payload, headers=head, verify=False)
