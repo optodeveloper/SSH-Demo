@@ -41,7 +41,7 @@ The following Python scripts use OptoMMP thru the socket interface to communicat
 The following Python Scripts use RESTful APIs thru the requests package to communicate with *groov* EPIC.
 
 ### NOTE: Updating API KEY
-Before using any of the following scripts you will need to install Python-pip **and** update the API key in each script you want to run. You can use the default Admin API key for scripts that use the on-board I/O but you must create a new user with PAC Control REST API permissions to run scripts that access PAC Control variables.
+Before using any of the following scripts you will need to install Python-pip **and** update the API keys in the `apiKey.py` file. You will need at least two users: one with Manage API permission (a Manage admin), and another with PAC Control REST API read-write permission.
 
 **To install the requests package on *groov* EPIC:**
 1. `sudo apt-get update`
@@ -51,10 +51,11 @@ Before using any of the following scripts you will need to install Python-pip **
 **To get an API key:**
 1. Go to https://hostname/manage replacing "hostname" with your device's unique hostname.
 2. Select *Accounts*
-3. Choose or create a user with the appropriate permissions.
+3. Choose or create users with the appropriate permissions: one for Manage admin and one for PAC Control REST API read-write permissions.
 4. Copy the long string under API Key at the bottom of the page, it will look like "M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP".
-5. In the shell type `nano script.py` replacing "`script`" with the script you want to run.
-6. In the header object `head` replace the current `apiKey` string with the new API key by deleteing the old one and using right-click to paste the new one. Make sure you leave the single quotes and comma `' ',` around the new API key.
+5. In the shell type `nano apiKey.py`
+6. Replace the `Manage_key` string with the key from a Manage Admin user.
+7. Replace the `PAC_key` string with the key from a user with PAC Control REST API read-write permission.
 7. Press `ctrl + o` to write the changes and `enter` to keep the file name.
 8. Press `ctrl + x` to exit the _nano_ text editor.
 
