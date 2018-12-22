@@ -1,5 +1,14 @@
 # README for groov EPIC Secure Shell (SSH) Demo
 
+To get this entire folder onto your _groov_ EPIC run the following command in the folder you want to download it to:<br>
+`git clone https://github.com/optodeveloper/SSH-Demo.git`
+
+Then navigate into the new folder with:<br>
+`cd SSH-Demo`
+
+And to view the files:<br>
+`ls`
+
 ------------
 
 ## OptoMMP: Python Scripts
@@ -22,7 +31,6 @@ The following Python scripts use OptoMMP thru the socket interface to communicat
 ## OptoMMP: Executable file compiled from C++ code
 
 *"pulseprogram"* Flashes output 22 on module 0 twenty two times. Source code is **pulseprogram.cpp**, uses the OptoMMP C++ SDK.
-* `chmod +x pulseprogram` to make the file executable before running,
 * `./pulseprogram` to run the program.
 
 
@@ -30,7 +38,27 @@ The following Python scripts use OptoMMP thru the socket interface to communicat
 
 ## REST API: Python Scripts
 
-The following Python Scripts use RESTful APIs thru the requests package to communicate with *groov* EPIC:
+The following Python Scripts use RESTful APIs thru the requests package to communicate with *groov* EPIC.
+
+### NOTE: Updating API KEY
+Before using any of the following scripts you will need to install Python-pip **and** update the API key in each script you want to run. You can use the default Admin API key for scripts that use the on-board I/O but you must create a new user with PAC Control REST API permissions to run scripts that access PAC Control variables.
+
+**To install the requests package on *groov* EPIC:**
+1. `sudo apt-get update`
+2. `sudo apt-get install python-pip`
+3. `sudo pip install requests`
+
+**To get an API key:**
+1. Go to https://hostname/manage replacing "hostname" with your device's unique hostname.
+2. Select *Accounts*
+3. Choose or create a user with the appropriate permissions.
+4. Copy the long string under API Key at the bottom of the page, it will look like "M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP".
+5. In the shell type `nano script.py` replacing "`script`" with the script you want to run.
+6. In the header object `head` replace the current `apiKey` string with the new API key by deleteing the old one and using right-click to paste the new one. Make sure you leave the single quotes and comma `' ',` around the new API key.
+7. Press `ctrl + o` to write the changes and `enter` to keep the file name.
+8. Press `ctrl + x` to exit the _nano_ text editor.
+
+#### The following require an API key from a user with _groov_ Manage permissions:
 
 *"pulsePython_Output"* will pulse _Python_Output_ on module 0, digital output channel 22, using the Manage REST API.
 * `python pulsePython_Output.py`    will pulse the output twenty-two times.
@@ -39,23 +67,19 @@ The following Python Scripts use RESTful APIs thru the requests package to commu
 * `python writePython_Output.py on`    will turn the output on.
 * `python writePython_Output.py off`    will turn the output off.
 
+*"readtc"* returns the decimal value of analog input channel 0, module 2, which should have a thermocouple installed, using the Manage REST API.
+* `python readtc.py`    will read the input channel and output the result.
+
+*"restreaddigmodch"* returns the state of the given module and channel: two required parameters for module and channel number using the Manage API.
+* `python restreaddigmodch.py 0 1`    will read the digital state of localhost module 0, channel 1, and output the result.
+
+*"restwritedigmodch0or1"* sets the state of the given module and channel: three required parameters for module number, channel number, and state 1 or 0 using the Manage API.
+* `python restwritedigmodch0or1.py 0 1 1`    will write the digital state of localhost module 0, channel 1 to be = 1 (on/true) and attempt confirmation.
+
+#### The following require an API key from a user with PAC Control REST API permissions:
+
 *"writePython_Var"* will write the given value to the _Python_Var_ int32 variable using the PAC Control REST API.
 * `python writePython_Var.py 22`    will write 22 to the variable.
 
 *"readLPTvar"* returns the decimal value of PAC Control float variable "_Presure_Transducer_1_" using the PAC Control REST API.
 * `python readLPTvar.py`    will read the variable and output the result.
-
-*"readtc"* returns the decimal value of analog input channel 0, module 2, which should have a thermocouple installed, using the Manage REST API.
-* `python readtc.py`    will read the input channel and output the result.
-
-
-*"restreaddigmodch"* returns the state of the given module and channel: two required parameters for module and channel number.
-* `python restreaddigmodch.py 0 1`    will read the digital state of localhost module 0, channel 1, and output the result.
-
-*"restwritedigmodch0or1"* sets the state of the given module and channel: three required parameters for module number, channel number, and state 1 or 0
-* `python restwritedigmodch0or1.py 0 1 1`    will write the digital state of localhost module 0, channel 1 to be = 1 (on/true) and attempt confirmation.
-
-### **NOTE:** To install the requests package on *groov* EPIC
-1. `sudo apt-get update`
-2. `sudo apt-get install python-pip`
-3. `sudo pip install requests`
