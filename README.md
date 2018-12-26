@@ -66,7 +66,7 @@ Before using any of the following scripts you will need to install Python-pip **
 7. Press `ctrl + o` to write the changes and `enter` to keep the file name.
 8. Press `ctrl + x` to exit the _nano_ text editor.
 
-#### The following require an API key from a user with _groov_ Manage permissions:
+### Python Scripts
 
 *"pulsePython_Output"* will pulse _Python_Output_ on module 0, digital output channel 22, using the Manage REST API.
 * `python pulsePython_Output.py`    will pulse the output twenty-two times.
@@ -83,8 +83,6 @@ Before using any of the following scripts you will need to install Python-pip **
 
 *"restwritedigmodch0or1"* sets the state of the given module and channel: three required parameters for module number, channel number, and state 1 or 0 using the Manage API.
 * `python restwritedigmodch0or1.py 0 1 1`    will write the digital state of localhost module 0, channel 1 to be = 1 (on/true) and attempt confirmation.
-
-#### The following require an API key from a user with PAC Control REST API permissions:
 
 *"writePython_Var"* will write the given value to the _Python_Var_ int32 variable using the PAC Control REST API.
 * `python writePython_Var.py 22`    will write 22 to the variable.
