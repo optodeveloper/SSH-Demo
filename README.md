@@ -1,5 +1,13 @@
 # README for groov EPIC Secure Shell (SSH) Demo
 
+To get secure shell access for your _groov_ EPIC PR-1 processor, first get a free shell license by contacting Preferred Customer Specialists at pcs@opto22.com.<br>
+Once you have the file, go to the _groov_ Manage **System** menu in a web browser, select **License**, **Upload License**, and then upload the file that PCS provides. After that you will need to create a shell user through the **System** **Shell** menu, which will also open port 22 for you to get remote access.
+
+To access your _groov_ EPIC using SSH over Windows use the [PuTTY SSH client](https://www.putty.org/).<br>
+Once you have the client installed, put your hostname into the connection destination, with the default port **22** and **SSH** connection type, then click **Open**. You will need to trust the new connection and log in with the user you created in groov manage, then you're good to go!
+
+--------
+
 To get this entire folder onto your _groov_ EPIC run the following command in the folder you want to download it to:<br>
 `git clone https://github.com/optodeveloper/SSH-Demo.git`
 
@@ -9,7 +17,7 @@ Then navigate into the new folder with:<br>
 And to view the files:<br>
 `ls`
 
-------------
+--------
 
 ## OptoMMP: Python Scripts
 
