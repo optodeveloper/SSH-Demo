@@ -49,21 +49,20 @@ The following Python scripts use OptoMMP thru the socket interface to communicat
 The following Python Scripts use RESTful APIs thru the requests package to communicate with *groov* EPIC.
 
 ### NOTE: Updating API KEY
-Before using any of the following scripts you will need to install Python-pip **and** update the API keys in the `apiKey.py` file. You will need at least two users: one with Manage API permission (a Manage admin), and another with PAC Control REST API read-write permission.
+Before using any of the following scripts you will need to install Python-pip **and** update the API key in the `apiKey.py` file. 
 
 **To install the requests package on *groov* EPIC:**
 1. `sudo apt-get update`
 2. `sudo apt-get install python-pip`
 3. `sudo pip install requests`
 
-**To get an API key:**
-1. Go to https://hostname/manage replacing "hostname" with your device's unique hostname.
-2. Select *Accounts*
-3. Choose or create users with the appropriate permissions: one for Manage admin and one for PAC Control REST API read-write permissions.
-4. Copy the long string under API Key at the bottom of the page, it will look like "M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP".
+**To get and update the API key:**
+1. Go to https://hostname/manage, replacing "hostname" with your device's unique hostname.
+2. Select **Accounts**
+3. Select or create an account with Admin permissions.
+4. Copy the long string under **API Key** at the bottom of the page, it will look like "`M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP`".
 5. In the shell type `nano apiKey.py`
-6. Replace the `Manage_key` string with the key from a Manage Admin user.
-7. Replace the `PAC_key` string with the key from a user with PAC Control REST API read-write permission.
+6. Replace the `key` variable string value with the key from the Admin user, just using arrow keys and backspace or delete to remove the old string and right click to paste into PuTTY.
 7. Press `ctrl + o` to write the changes and `enter` to keep the file name.
 8. Press `ctrl + x` to exit the _nano_ text editor.
 

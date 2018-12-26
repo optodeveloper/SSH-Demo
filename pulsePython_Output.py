@@ -1,12 +1,12 @@
-from apiKey import Manage_key
+from apiKey import key
 import time         # to sleep
 import requests     # to make get/post requests
 # ignore insecure https requests warning:
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 # head is a JSON object that holds API key information
-head = {    'apiKey' : Manage_key,
-                    'Content-Type' : 'application/json' }
+head = {    'apiKey' : key,
+            'Content-Type' : 'application/json' }
 host = 'localhost'
 val = 'true'
 # construct request URL for the 'local' built-in rack of I/O *state*
