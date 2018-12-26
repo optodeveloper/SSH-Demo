@@ -1,7 +1,7 @@
 # README for groov EPIC Secure Shell (SSH) Demo
 
 To get secure shell access for your _groov_ EPIC PR-1 processor, first get a free shell license key by contacting Preferred Customer Specialists at pcs@opto22.com, then go to [manage.groov.com](manage.groov.com), select the PR-1 you want to apply the shell access key to, and then download the license file for that device.<br>
-Once you have the file, go to the _groov_ Manage **System** menu in a web browser, select **License**, **Upload License**, and then upload the file from manage.groov. After that you will need to create a shell user through the **System** **Shell** menu, which will also open port 22 for you to get remote access.
+Once you have the file, go to the _groov_ Manage **System** menu in a web browser, select **License**, **Upload License**, and then upload the file you downloaded from manage.groov. After that you will need to create a shell user through the **System** **Shell** menu, which will also open port 22 for you to get remote access.
 
 To access your _groov_ EPIC using SSH over Windows use the [PuTTY SSH client](https://www.putty.org/).<br>
 Once you have the client installed, put your hostname into the connection destination, with the default port **22** and **SSH** connection type, then click **Open**. You will need to trust the new connection and log in with the user you created in groov manage, then you're good to go!
