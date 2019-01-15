@@ -4,7 +4,7 @@ To get secure shell access to your _groov_ EPIC processor, first get a free shel
 After you have the file, go to the _groov_ Manage **System** menu in a web browser, select **License** > **Upload License**, and upload the file you downloaded from manage.groov. Next, you create a shell user through the **System** > **Shell** menu, which will also open port 22 for remote access.
 
 To access your _groov_ EPIC using SSH over Windows use the [PuTTY SSH client](https://www.putty.org/).<br>
-After the client is installed, put your hostname into the connection destination, with the default port **22** and **SSH** connection type, then click **Open**. You will need to trust the new connection and log in with the user you created in _groov_ Manage, then you're good to go!
+After the client is installed, put your hostname into the connection destination, with the default port **22** and **SSH** connection type, then click `Open`. ___You will need to trust the new connection by saying yes to the warning that pops up___, and log in with the user you created in _groov_ Manage, then you're good to go!
 
 --------
 
@@ -21,7 +21,7 @@ And to view the files:<br>
 
 ## OptoMMP: Python Scripts
 
-The following Python scripts use OptoMMP thru the socket interface to communicate *groov* EPIC:
+The following Python scripts use OptoMMP thru the socket interface to communicate *groov* EPIC, and don't require any prior setup:
 
 *"mmpgetuptime"* returns the uptime (ms) of the controller: one optional parameter for host.
 * `python mmpgetuptime.py`    will default to localhost.
@@ -49,7 +49,7 @@ The following Python scripts use OptoMMP thru the socket interface to communicat
 The following Python Scripts use RESTful APIs thru the requests package to communicate with *groov* EPIC.
 
 ### NOTE: Updating API KEY
-Before using any of the following scripts you will need to install Python-pip **and** update the API key in the `apiKey.py` file. 
+Before using any of the following RESTful scripts you will need to install Python-pip, the Python HTTP *requests* package, **and** update the API key in the `apiKey.py` file.
 
 **To install the requests package on *groov* EPIC:**
 1. `sudo apt-get update`
@@ -57,14 +57,15 @@ Before using any of the following scripts you will need to install Python-pip **
 3. `sudo pip install requests`
 
 **To get and update the API key:**
-1. Go to https://hostname/manage, replacing "hostname" with your device's unique hostname.
-2. Select **Accounts**
-3. Select or create an account with Admin permissions.
-4. Copy the long string under **API Key** at the bottom of the page, it will look like "`M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP`".
-5. In the shell type `nano apiKey.py`
-6. Replace the `key` variable string value with the key from the Admin user, just using arrow keys and backspace or delete to remove the old string and right click to paste into PuTTY.
-7. Press `ctrl + o` to write the changes and `enter` to keep the file name.
-8. Press `ctrl + x` to exit the _nano_ text editor.
+1. In the shell type `nano apiKey.py` exactly, make sure there's a capital **K** and leave the rest lowercase. Leave this text editor open.<br>TIP: Type `nano api` and then push the `tab` key and it will auto complete the file name.
+2. In a browser go to https://hostname/manage, replacing "hostname" with your device's unique hostname.
+3. Select **Accounts** from the main menu.
+4. Select or create an account with Admin permissions.
+5. Copy the long string under **API Key** at the bottom of the page, it will look like "`M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP`".
+6. Go back to the shell and replace the `key` variable string value with the key from the Admin user, *just using arrow keys* (left clicking with your mouse will not work) go to the end of the key and backspace to remove the old string.
+7. With the cursor in between the completely empty quotes `apiKey = ''` right click anywhere on the screen to paste the copied API key into PuTTY.
+7. Press `ctrl + o` to write out (save) the changes, and press `enter` to keep the same file name. You should see "wrote lines" at the bottom of the screen.
+8. Press `ctrl + x` to exit the _nano_ text editor. There should be no prompt since you just saved the changes.
 
 ### Python Scripts
 
