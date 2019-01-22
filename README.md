@@ -11,11 +11,24 @@ After the client is installed, put your hostname into the connection destination
 To get this entire folder onto your _groov_ EPIC run the following command in the folder you want to download it to:<br>
 `git clone https://github.com/optodeveloper/SSH-Demo.git`
 
+See that the folder was downloaded to your current directory by doing a *list* command:<br>
+`ls`
+
 Then navigate into the new folder with:<br>
 `cd SSH-Demo`
 
 And to view the files:<br>
 `ls`
+
+### Command line tips
+
+1. When typing a command, for example `python mmpgetuptime.py`, you can use the `tab` key to **auto-complete** the filename up to where it is unique:
+    Typing `python mmpg` then pressing `tab` will autocomplete the filename, then you can just press `enter` to run the script.
+    If it does not auto complete then you either need to give it more characters, or you've made a typeo and that file does not exist.
+
+2. You can **cancel** a script with `ctrl + c`. This is useful if a script is stuck attempting to complete in the case of a network glitch or incorrect setting.
+
+3. **Note:** These scripts will attempt to overwrite anything else running on the controller — including any active strategies or projects! So if your EPIC is using channel 1 on module 0 in a strategy, then you should avoid writing to that channel using these scripts and choose something unmapped instead.
 
 --------
 
@@ -52,9 +65,12 @@ The following Python Scripts use RESTful APIs thru the requests package to commu
 Before using any of the following RESTful scripts you will need to install Python-pip, the Python HTTP *requests* package, **and** update the API key in the `apiKey.py` file.
 
 **To install the requests package on *groov* EPIC:**
-1. `sudo apt-get update`
-2. `sudo apt-get install python-pip`
-3. `sudo pip install requests`
+1. `sudo apt-get update`<br>
+  Updates the *apt* (Advanced Package Tool) source list to get the latest packages.
+2. `sudo apt-get install python-pip`<br>
+  Installs *pip*, the Python package manager, using *apt*.
+3. `sudo pip install requests`<br>
+  Use the pip package manager to get the Python HTTP *requests* package.
 
 **To get and update the API key:**
 1. In the shell type `nano apiKey.py` exactly, make sure there's a capital **K** and leave the rest lowercase. Leave this text editor open.<br>TIP: Type `nano api` and then push the `tab` key and it will auto complete the file name.
@@ -63,9 +79,10 @@ Before using any of the following RESTful scripts you will need to install Pytho
 4. Select or create an account with Admin permissions.
 5. Copy the long string under **API Key** at the bottom of the page, it will look like "`M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP`".
 6. Go back to the shell and replace the `key` variable string value with the key from the Admin user, *just using arrow keys* (left clicking with your mouse will not work) go to the end of the key and backspace to remove the old string.
-7. With the cursor in between the completely empty quotes `apiKey = ''` right click anywhere on the screen to paste the copied API key into PuTTY.
-7. Press `ctrl + o` to write out (save) the changes, and press `enter` to keep the same file name. You should see "wrote lines" at the bottom of the screen.
-8. Press `ctrl + x` to exit the _nano_ text editor. There should be no prompt since you just saved the changes.
+7. With the cursor in between the completely empty quotes `apiKey = ''`, right click anywhere on the PuTTY screen to paste the copied API key into PuTTY.
+8. The only thing on the screen should be `apiKey = 'M7FjTXTepYhQnc9fFViTP3S3pY5GcwYP'` with the text matching your own API key.
+9. Press `ctrl + o` to write out (save) the changes, and press `enter` to keep the same file name when prompted. You should see "wrote lines" at the bottom of the screen.
+10. Press `ctrl + x` to exit the _nano_ text editor. There should be no prompt since you just saved the changes.
 
 ### Python Scripts
 
